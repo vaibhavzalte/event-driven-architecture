@@ -4,16 +4,17 @@ import com.notification.service.notification_service.event.OrderCreatedEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.function.Consumer;
+import java.util.function.Function;
 
 @Configuration
 public class NotificationConsumer {
     @Bean
-    public Consumer<OrderCreatedEvent> orderEventReceiver() {
-        return event -> {
+    public Function<OrderCreatedEvent, String> orderEventReceiver() {
+        return (event -> {
             System.out.println("+++++++++++++++++++++++++++");
             System.out.println("Received OrderCreatedEvent: " + event);
             System.out.println("+++++++++++++++++++++++++++");
-        };
+            return "Order Notification sent to user";
+        });
     }
 }
