@@ -21,7 +21,7 @@ public class OrderService {
         System.out.println("Order created: " + orderId);
         OrderCreatedEvent event =new OrderCreatedEvent(orderId,product,quantity,customerEmail);
         boolean sent =streamBridge.send("orderCreatedEvent-out-0",event);
-        System.out.println("Event sent to RabbitMQ: " + sent);
+        System.out.println("Event sent to Kafka: " + sent);
         return orderId;
     }
 }
