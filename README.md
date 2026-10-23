@@ -60,3 +60,6 @@ order-notification-queue
      ▼
 notification-service
 ```
+
+
+to analyze kafka used plungins 'Kafkalytic'
